@@ -3,6 +3,7 @@ function App() {
     <>
       <p>Hello World</p>
       <p>Hello</p>
+      <p>你好</p>
     </>
   )
 }
