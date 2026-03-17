@@ -1,9 +1,7 @@
 function App() {
   return (
     <>
-      <p>Hello World</p>
-      <p>Hello</p>
-      <p>你好</p>
+      <p>这是我的博客</p>
     </>
   )
 }
