@@ -1,7 +1,10 @@
+import React from 'react';
+import RouterConfig  from './router';
+
 function App() {
   return (
     <>
-      <p>这是我的博客</p>
+      <RouterConfig />
     </>
   )
 }

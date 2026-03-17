@@ -1,0 +1,67 @@
+p{
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.introduction {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 28% 28% 28%;
+    grid-column-gap: 8%;
+}
+
+.midside {
+    display: grid;
+    grid-template-rows: 25% 47% 8%;
+    grid-row-gap: 10%
+}
+
+
+.leftside {
+    padding-top: 20%;
+    padding-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.selection {
+    width: 300px;
+    height: 645px;
+}
+
+.card-container {
+    background: linear-gradient(135deg, #e0e0e000, #c0c0c000);
+    border-radius: 30px;
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.3),
+      -6px -6px 12px rgba(255, 255, 255, 0.3),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.rightside {
+    display: grid;
+    grid-template-rows: 30% 40% 25%;
+    justify-content: start;
+}
+
+.design {
+    padding-top: 50%;
+    width: 250px;
+}
