@@ -20,9 +20,13 @@ p{
 .midside {
     display: grid;
     grid-template-rows: 25% 47% 8%;
-    grid-row-gap: 10%
+    grid-row-gap: 10%;
 }
 
+.card-picture {
+    justify-items: center;
+    align-items: center;
+}
 
 .leftside {
     padding-top: 20%;

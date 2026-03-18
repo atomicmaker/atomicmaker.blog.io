@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = () => {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const [date, setDate] = React.useState(new Date());
 
   React.useEffect(() => {
@@ -178,7 +178,7 @@ const StyledWrapper = styled.div`
   .card-time-cloud-icon svg {
     position: absolute;
     z-index: 4;
-    top: 5em;
+    top: 4em;
     right: 0.6em;
     transform: rotate(0deg);
     width: 1.5em;

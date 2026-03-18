@@ -74,7 +74,7 @@ const StyledWrapper = styled.div`
     }
   }
   .image {
-    width: 97%;
+    width: 100%;
     border: 4px solid;
     background-color: #eee;
     aspect-ratio: 1 / 1;
