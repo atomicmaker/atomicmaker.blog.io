@@ -3,6 +3,11 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+@font-face {
+  font-family: 'jixueSong';
+  src: url('./assets/font/XIANGCUIJIXUESONG.ttf');
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

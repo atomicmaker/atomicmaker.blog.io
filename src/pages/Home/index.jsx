@@ -1,6 +1,7 @@
 import './index.css'
 import { AuroraText } from '../../components/ui/aurora-text'
 import { BlurFade } from '../../components/ui/blur-fade'
+import { HyperText } from '../../components/ui/hyper-text'
 import { PixelImage } from '../../components/ui/pixel-image'
 import LinkCard from '../../components/LinkCard'
 import ProfileFrame from '../../components/ProfileFrame'
