@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'jixueSong';
-  src: url('./assets/font/XIANGCUIJIXUESONG.ttf');
+  src: url('font/XIANGCUIJIXUESONG.ttf');
 }
 
 @custom-variant dark (&:is(.dark *));

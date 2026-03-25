@@ -3,9 +3,9 @@ import RouterConfig  from './router';
 
 function App() {
   return (
-    <>
+    <div>
       <RouterConfig />
-    </>
+    </div>
   )
 }
 

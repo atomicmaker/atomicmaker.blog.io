@@ -1,0 +1,11 @@
+.pastime-record {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pastime-btn {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
