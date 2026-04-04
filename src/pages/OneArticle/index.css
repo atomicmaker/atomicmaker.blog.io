@@ -1,0 +1,10 @@
+.article-body{
+    margin: 0px 25% 0px 100px;
+    padding: 30px 5px 30px 30px;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.article-body .img {
+    width: 20px;
+}

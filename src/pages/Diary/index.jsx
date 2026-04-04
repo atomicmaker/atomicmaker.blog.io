@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from "react-router-dom";
 import BackBtn from '../../components/BackBtn'
 import Draggable from "react-draggable";
@@ -13,12 +13,12 @@ const images = import.meta.glob(`../../assets/diary/**/*.jpg`,
     })
 
 
-const OneGame = () => {
+const Diary = () => {
     const { id } = useParams();
     const date = id.slice(1);
    
     const filterdPImages = Object.entries(images)
-                            .filter(([filePath]) => filePath.includes(`/diary/${date}/`))
+                            .filter(([filePath]) => filePath.includes(`diary/${date.slice(0, -3)}/${date}/`))
                             .map(([_, imgUrl]) => imgUrl);
 
 
@@ -44,8 +44,8 @@ const OneGame = () => {
 
         const loadTxt = async () => {
             try {
-              const modules = import.meta.glob('../../assets/diary/**/*.txt', { as: 'raw' });
-              const text = await modules[`../../assets/diary/${textSrc}.txt`]();
+              const modules = import.meta.glob('../../assets/diary/**/*.txt', { query: '?raw', import: 'default'});
+              const text = await modules[`../../assets/diary/${textSrc.slice(0, -5)}/${textSrc}.txt`]();
               setContent(text);
             } catch (err) {
               console.error('读取失败', err);
@@ -53,6 +53,24 @@ const OneGame = () => {
         };
         loadTxt();
     }
+
+    const cardsRef = useRef([]);
+    //首次加载随机位置
+    useEffect(() => {
+      cardsRef.current.forEach(card => {
+        card.style.position = 'absolute'
+        card.style.top =  `${Math.random() * 40 + 10}%`
+        card.style.left = `${Math.random() * 40 + 20}%`
+        card.style.rotate = `${(Math.random() - 0.5) * 25}deg`
+        card.style.zIndex = Math.floor(Math.random() * 10) + 1
+      });
+    }, []);
+
+    // 需要置顶的 id
+    // const [topId, setTopId] = useState(null)
+    // const handleClick = (id) => {
+    //     setTopId(id)
+    // }
 
     const closePreview = () => {
         setShowPreview(false)
@@ -65,12 +83,21 @@ const OneGame = () => {
                 {filterdPImages.map((imgUrl, index) => {
                     return (
                         <Draggable>
-                            <div className="img-card" onDoubleClick={ () => handleDoubleClick(imgUrl) }>
+                            <div>
+                            <div 
+                                ref={(el) => (cardsRef.current[index] = el)}
+                                className='img-card'
+                                // 动态类名，置顶则加 top-class
+                                //className={`img-card ${topId === index ? 'top-class' : ''}`} 
+                                onDoubleClick={ () => handleDoubleClick(imgUrl) }
+                                //onPointerDown={ () => { handleClick(index) }}
+                            >
                                 <img 
                                     src={imgUrl} 
                                     key={index}
                                     onDragStart={ handleIamgeDragStart }
                                 />
+                            </div>
                             </div>
                         </Draggable>
                     )
@@ -116,5 +143,5 @@ const OneGame = () => {
     )
 }
 
-export default OneGame;
+export default Diary;
 

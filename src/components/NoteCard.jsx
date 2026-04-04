@@ -30,8 +30,8 @@ const Card = ({ children }) => {
 
 const StyledWrapper = styled.div`
   .card {
-    width: 300px;
-    height: 254px;
+    width: 320px;
+    height: 270px;
     margin: 0 auto;
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     border-radius: 8px;

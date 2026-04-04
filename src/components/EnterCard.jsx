@@ -24,10 +24,10 @@ const Card = ({ date, children }) => {
 const StyledWrapper = styled.div`
   .card {
     font-family: Montserrat, sans-serif;
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 320px;
     translate: -6px -6px;
-    background: ;
+    background: white;
     border: 3px solid rgb(0, 0, 0);
     box-shadow: 12px 12px 0 #000000;
     overflow: hidden;
@@ -58,7 +58,8 @@ const StyledWrapper = styled.div`
     border: 3px solid #000000;
     box-shadow: 3px 3px 0 #000000;
     font-weight: 750;
-    background: #4ade80;
+    color: rgb(255, 255, 255);
+    background:rgb(0, 0, 0);
     transition: all 0.3s ease;
     cursor: pointer;
   }

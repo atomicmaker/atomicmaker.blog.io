@@ -1,13 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components';
 
 const Button = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1)
+  }
+
   return (
     <StyledWrapper>
       <div className="styled-wrapper">
-        <Link to={-1}>
-        <button className="button">
+        <button className="button" onClick={handleBack}>
           <div className="button-box">
             <span className="button-elem">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="arrow-icon">
@@ -21,7 +26,6 @@ const Button = () => {
             </span>
           </div>
         </button>
-        </Link>
       </div>
     </StyledWrapper>
   );

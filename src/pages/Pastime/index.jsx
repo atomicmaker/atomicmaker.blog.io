@@ -9,8 +9,8 @@ const Pastime = () => {
     const { token } = theme.useToken();
     const wrapperStyle = {
       width: 300,
-      border: `1px solid ${token.colorBorderSecondary}`,
-      borderRadius: token.borderRadiusLG,
+      border: '3px solid rgb(0, 0, 0)',
+      boxShadow: '-12px 12px 0 rgb(0, 0, 0)',
     };
     
     const [nowDay, setNDay] = React.useState(new Date()); 
@@ -36,7 +36,7 @@ const Pastime = () => {
     }, [selected])
 
     return (
-        <div>
+        <div className='pastime-all'>
             <ToolBar part='pastime' />
             <div className='pastime-record'>
                 <div style={wrapperStyle} className='pastime-date'>
@@ -47,14 +47,14 @@ const Pastime = () => {
                         }
                     }} />
                 </div>
+                
+                <div className='pastime-btn'>
+                    <ENTBtn></ENTBtn>
+                 </div>
 
                 <div className='pastime-enter'>
                     <EnterCard date={date} ></EnterCard>
                 </div>
-            </div>
-
-            <div className='pastime-btn'>
-                <ENTBtn></ENTBtn>
             </div>
         </div>
     )
