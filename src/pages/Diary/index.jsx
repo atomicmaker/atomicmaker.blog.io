@@ -12,15 +12,23 @@ const images = import.meta.glob(`../../assets/diary/**/*.jpg`,
         import: 'default'
     })
 
+const texts = import.meta.glob(`../../assets/diary/**/*.txt`, {
+    eager: true,
+    query: '?raw',
+    import: 'default'
+    })
 
 const Diary = () => {
-    const { id } = useParams();
-    const date = id.slice(1);
+    const { id } = useParams()
+    const date = id.slice(1)
    
     const filterdPImages = Object.entries(images)
                             .filter(([filePath]) => filePath.includes(`diary/${date.slice(0, -3)}/${date}/`))
-                            .map(([_, imgUrl]) => imgUrl);
+                            .map(([_, imgUrl]) => imgUrl)
 
+    const filteredTexts = Object.entries(texts)
+                        .filter(([filePath]) => filePath.includes(`diary/${date.slice(0, -3)}/${date}/`))
+                        .map(([_, content]) => content)
 
     //阻止图片的默认拖拽事件
     const handleIamgeDragStart = (e) => {
@@ -34,24 +42,12 @@ const Diary = () => {
     //描述图片文本
     const [content, setContent] = useState('');
 
-    const handleDoubleClick = (src) => {
+    const handleDoubleClick = (src, index) => {
         setPreviewImage(src)
         setShowPreview(true)
         document.body.style.overflow = 'hidden'
 
-        const tmp = src.split('/')
-        const textSrc = tmp[tmp.length - 2] + '/' + tmp[tmp.length - 1].slice(0, -4)
-
-        const loadTxt = async () => {
-            try {
-              const modules = import.meta.glob('../../assets/diary/**/*.txt', { query: '?raw', import: 'default'});
-              const text = await modules[`../../assets/diary/${textSrc.slice(0, -5)}/${textSrc}.txt`]();
-              setContent(text);
-            } catch (err) {
-              console.error('读取失败', err);
-            }
-        };
-        loadTxt();
+        setContent(filteredTexts[index])
     }
 
     const cardsRef = useRef([]);
@@ -89,7 +85,7 @@ const Diary = () => {
                                 className='img-card'
                                 // 动态类名，置顶则加 top-class
                                 //className={`img-card ${topId === index ? 'top-class' : ''}`} 
-                                onDoubleClick={ () => handleDoubleClick(imgUrl) }
+                                onDoubleClick={ () => handleDoubleClick(imgUrl, index) }
                                 //onPointerDown={ () => { handleClick(index) }}
                             >
                                 <img 
