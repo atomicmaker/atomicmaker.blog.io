@@ -36,9 +36,12 @@ const Pastime = () => {
     }, [selected])
 
     return (
-        <div className='pastime-all'>
-            <ToolBar part='pastime' />
-            <div className='pastime-record'>
+        <div className='pastime-main'>
+            <div className='tool-bar'>
+                <ToolBar part='pastime' />
+            </div>
+            
+            <div className='pastime-section'>
                 <div style={wrapperStyle} className='pastime-date'>
                     <Calendar fullscreen={false} onSelect={(date, { source }) => {
                         if (source === 'date') {
@@ -47,10 +50,10 @@ const Pastime = () => {
                         }
                     }} />
                 </div>
-                
+                    
                 <div className='pastime-btn'>
                     <ENTBtn></ENTBtn>
-                 </div>
+                </div>
 
                 <div className='pastime-enter'>
                     <EnterCard date={date} ></EnterCard>

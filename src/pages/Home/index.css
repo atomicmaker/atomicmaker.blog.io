@@ -1,71 +1,97 @@
-.main p{
-    font-size: 1em;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-}
+/* 
+COLOR:
+    #CFE7E1
+    #F9F8F7
+    #F8C8C8
+    #EEEEAE
+    #CDDC84
+    #A4BF58
+*/
 
-.introduction {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.main {
+/* GENERAL */
+.home-main {
     display: grid;
-    grid-template-columns: 28% 28% 28%;
-    grid-column-gap: 8%;
-}
-
-.midside {
-    display: grid;
-    grid-template-rows: 25% 47% 8%;
-    grid-row-gap: 10%;
-}
-
-.card-picture {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     justify-items: center;
-    align-items: center;
-}
-
-.leftside {
-    padding-top: 20%;
-    padding-right: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-
-.selection {
-    width: 300px;
-    height: 645px;
+    background-color: #CFE7E1;
+    height: 100vh;
 }
 
 .card-container {
-    background: linear-gradient(135deg, #e0e0e000, #c0c0c000);
-    border-radius: 30px;
-    box-shadow:
-      6px 6px 12px rgba(0, 0, 0, 0.3),
-      -6px -6px 12px rgba(255, 255, 255, 0.3),
-      inset 2px 2px 4px rgba(255, 255, 255, 0.4),
-      inset -2px -2px 4px rgba(0, 0, 0, 0.5);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
+    background-color: #F9F8F7;
+    border-radius: 2rem;
+  
+    transition: all 0.3s;
+  
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
 }
 
-.rightside {
-    display: grid;
-    grid-template-rows: 30% 40% 25%;
-    justify-content: start;
+
+/* LEFT-SIDE */
+.home-left-side {
+    grid-row: 1 / 4;
 }
 
-.design {
-    padding-top: 50%;
-    width: 250px;
+.home-left-side .card-container {
+    border: 1rem solid #EEEEAE;
+    background: linear-gradient(to right bottom, #EEEEAE, #F9F8F7);
+}
+
+.home-introduction {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.home-introduction p {
+    font-weight: bold;
+}
+
+.home-introduction-picture {
+    width: 6rem; 
+    border-radius: 5rem; 
+    margin: 0 1.5rem 0 0;
+}
+
+
+/* MID-SIDE */
+.home-picture {
+    width: 38rem;
+    border-radius: 2rem;
+}
+
+.home-picture-card {
+    height: 23rem;
+    width: 40rem;
+    background-image: url('../../assets/img/card-picture.jpg');
+    background-size: cover;
+}
+
+.home-profile-card {
+    grid-row: 2 / 3; 
+    padding: 6rem 6rem;
+    align-self: start;
+    border: 1rem solid #F8C8C8;
+    background: linear-gradient(to right bottom, #F8C8C8, #F9F8F7);
+
+}
+
+.home-profile-card p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.home-profile-card p:nth-child(3) {
+    font-size: 3rem;
+}
+
+.home-link-card {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    align-self: start;
 }

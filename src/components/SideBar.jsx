@@ -60,11 +60,11 @@ const StyledWrapper = styled.div`
 
   .cards .card:hover {
     transform: scale(1.1, 1.1);
-    color: black
+    color: grey;
   }
 
   .cards:hover > .card:not(:hover) {
-    filter: blur(10px);
+    filter: blur(3px);
     transform: scale(0.9, 0.9);
   }`;
 

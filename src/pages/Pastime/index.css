@@ -1,15 +1,10 @@
-.pastime-all {
+.pastime-main {
+    height: 100vh;
+}
+
+.pastime-section {
     display: grid;
-    grid-template-rows: 100% 50%;
-}
-
-.pastime-record {
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
     align-items: center;
-    justify-content: space-around;
-}
-
-.pastime-btn {
-    display: flex;
-    justify-content: center;
 }

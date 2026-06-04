@@ -157,13 +157,18 @@
   }
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #ffe8f3,
-    #d9f3ff
-  );
+  box-sizing: border-box;
+}
+
+html {
+  /* 1 rem = 10 px */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
 }
