@@ -10,12 +10,14 @@ const Skill = () => {
                 <ToolBar part='skill'></ToolBar>
             </div>
 
-            <div className='skill-description'>
-                <p>我的<AuroraText>技术栈</AuroraText></p>
-            </div>
-            
-            <div className='card-container'>
-                <TechCloud></TechCloud>
+            <div className='skill-section'>
+                <div className='skill-description'>
+                    <p>我的<AuroraText>技术栈</AuroraText></p>
+                </div>
+                
+                <div className='card-container'>
+                    <TechCloud></TechCloud>
+                </div>
             </div>
         </div>
     )

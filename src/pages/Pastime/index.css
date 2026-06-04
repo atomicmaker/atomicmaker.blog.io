@@ -1,10 +1,87 @@
+/*
+COLOR:
+    #CFE7E1  - page background
+    #F9F8F7  - card background
+    #F8C8C8  - pink
+    #EEEEAE  - yellow
+    #CDDC84  - green
+    #A4BF58  - dark green
+*/
+
 .pastime-main {
     height: 100vh;
+    background-color: #CFE7E1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.pastime-section {
+.tool-bar {
+    flex-shrink: 0;
+}
+
+.pastime-content {
+    flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
     justify-items: center;
     align-items: center;
+    padding: 0 5rem 3rem 5rem;
+}
+
+.pastime-card {
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Left panel: Calendar + Diary (pink theme) */
+.diary-panel {
+    background: linear-gradient(to right bottom, #F8C8C8, #F9F8F7);
+    padding: 2rem 3rem;
+    gap: 1.5rem;
+}
+
+/* Right panel: Hobby grid (yellow theme) */
+.hobby-panel {
+    background: linear-gradient(to right bottom, #EEEEAE, #F9F8F7);
+    padding: 2.5rem 3rem;
+}
+
+/* Separator between calendar and diary */
+.diary-divider {
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #F8C8C8, transparent);
+    border-radius: 1px;
+}
+
+/* Calendar inner wrapper */
+.calendar-inner {
+    background: transparent;
+    border-radius: 1.2rem;
+    padding: 0.5rem;
+}
+
+/* Soften Ant Design calendar cells */
+.calendar-inner .ant-picker-cell-inner {
+    border-radius: 0.5rem !important;
+    transition: all 0.2s ease;
+}
+
+.calendar-inner .ant-picker-cell-selected .ant-picker-cell-inner {
+    background: #F8C8C8 !important;
+    color: #555 !important;
+}
+
+.calendar-inner .ant-picker-cell-today .ant-picker-cell-inner {
+    border-color: #F8C8C8 !important;
+}
+
+.calendar-inner .ant-picker-cell:hover .ant-picker-cell-inner {
+    background: #F8C8C833 !important;
 }

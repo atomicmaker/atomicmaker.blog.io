@@ -2,16 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
-const Card = ({ date, children }) => {
+const Card = ({ date }) => {
   return (
     <StyledWrapper>
-      <div className="card">
-        <div className="head">{ date }</div>
-        <div className="content">
-          {children}
-          <br />
+      <div className="diary-enter">
+        <div className="diary-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A4BF58" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span>{ date }</span>
+        </div>
+        <div className="diary-body">
+          <p className="diary-hint">记录这一天的点滴</p>
           <Link to={`/pastime/:${date}`}>
-            <button className="button">Enter</button>
+            <button className="diary-button">Enter</button>
           </Link>
         </div>
       </div>
@@ -19,64 +26,64 @@ const Card = ({ date, children }) => {
   );
 }
 
-//background: #ff66a3;
-
 const StyledWrapper = styled.div`
-  .card {
-    font-family: Montserrat, sans-serif;
-    width: 300px;
-    height: 320px;
-    translate: -6px -6px;
-    background: white;
-    border: 3px solid rgb(0, 0, 0);
-    box-shadow: 12px 12px 0 #000000;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  .diary-enter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px;
+    padding: 1.5rem;
+    gap: 1.2rem;
   }
 
-  .head {
-    font-family: Montserrat, sans-serif;
-    font-size: 14px;
-    font-weight: 900;
+  .diary-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #CDDC84;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #555;
     width: 100%;
-    height: 32px;
-    background: #ffffff;
-    padding: 5px 12px;
-    color: #000000;
-    border-bottom: 3px solid #000000;
+    justify-content: center;
   }
 
-  .content {
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: 600;
+  .diary-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .button {
-    padding: 5px 10px;
-    margin-top: 10px;
-    border: 3px solid #000000;
-    box-shadow: 3px 3px 0 #000000;
-    font-weight: 750;
-    color: rgb(255, 255, 255);
-    background:rgb(0, 0, 0);
-    transition: all 0.3s ease;
+  .diary-hint {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin: 0;
+  }
+
+  .diary-button {
+    background: linear-gradient(135deg, #CDDC84, #A4BF58);
+    color: #F9F8F7;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.6rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
   }
 
-  .button:hover {
-    translate: 1.5px 1.5px;
-    box-shadow: 1.5px 1.5px 0 #000000;
-    background: #1ac2ff;
+  .diary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(164, 191, 88, 0.45);
   }
 
-  .button:active {
-    translate: 3px 3px;
-    box-shadow: 0 0 0 #000000;
+  .diary-button:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
-
-  .card:hover {
-    translate: -6px;
-  }`;
+`;
 
 export default Card;
