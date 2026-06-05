@@ -1,0 +1,64 @@
+.game-main {
+    height: 100vh;
+    background-color: #CFE7E1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tool-bar {
+    flex-shrink: 0;
+}
+
+.game-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.game-hero-card {
+    background: linear-gradient(to right bottom, #F8C8C8, #F9F8F7);
+    border-radius: 2rem;
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #888;
+}
+
+.game-hero-card:hover {
+    color: #555;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #555;
+    margin: 0;
+}
+
+.game-desc {
+    font-size: 1.1rem;
+    color: #999;
+    margin: 0;
+}
+
+.game-list-card {
+    background: #F9F8F7;
+    border: 0.6rem solid #F8C8C8;
+    border-radius: 1.5rem;
+    padding: 2rem 4rem;
+    min-width: 360px;
+    text-align: center;
+}
+
+.placeholder-text {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin: 0;
+}
