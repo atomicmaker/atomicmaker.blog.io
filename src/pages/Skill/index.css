@@ -18,31 +18,27 @@ COLOR:
 
 .tool-bar {
     flex-shrink: 0;
+    display: flex;
+    padding: 1rem 0 0 1.5rem;
 }
 
 .skill-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2rem;
-    padding: 3rem;
+    padding: 5rem 3rem 3rem 3rem;
 }
 
 /* Title card */
-.skill-title-card {
-    background: linear-gradient(to right bottom, #CDDC84, #F9F8F7);
-    border-radius: 2rem;
-    padding: 2.5rem 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+.skill-hero{
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .skill-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     font-family: 'jixueSong';
     color: #555;
@@ -50,11 +46,9 @@ COLOR:
 }
 
 .skill-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #aaa;
-    margin: 0;
-    font-weight: 500;
-    letter-spacing: 1px;
+    margin: 0.5rem 0 0 0;
 }
 
 /* Tech cloud card */

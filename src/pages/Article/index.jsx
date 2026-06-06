@@ -1,13 +1,30 @@
 import { Link } from 'react-router-dom';
 import ToolBar from '../../components/ToolBar'
 import { BlurFade } from '../../components/ui/blur-fade'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import ProfilePicture from '../../assets/img/profile.jpg'
 import './index.css'
+
+// 从 markdown 正文中提取纯文本摘要
+const extractExcerpt = (rawContent, maxLen = 80) => {
+    // 去掉 frontmatter
+    const content = rawContent.replace(/^---[\s\S]*?---\r?\n?/, '')
+    // 去掉标题、图片、链接、HTML 标签、markdown 标记
+    const text = content
+        .replace(/^#{1,6}\s.*$/gm, '')
+        .replace(/<[^>]+>/g, '')
+        .replace(/!\[.*?\]\(.*?\)/g, '')
+        .replace(/\[([^\]]*)\]\(.*?\)/g, '$1')
+        .replace(/[*_~>`]/g, '')
+        .replace(/^\s*[\r\n]/gm, '')
+        .trim()
+    return text.length > maxLen ? text.slice(0, maxLen) + '…' : text
+}
 
 const Article = () => {
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const loadArticles = async() => {
@@ -43,11 +60,11 @@ const Article = () => {
 
                     articleList.push({
                         id: fileName,
+                        excerpt: extractExcerpt(rawContent),
                         ...meta
                     })
                 }
 
-                // 按日期倒序排序（最新的文章在最前面）
                 articleList.sort((a, b) => b.date.localeCompare(a.date))
                 setArticles(articleList)
             } catch (err) {
@@ -59,6 +76,17 @@ const Article = () => {
 
         loadArticles()
     }, [])
+
+    // 根据搜索词过滤文章
+    const filtered = useMemo(() => {
+        if (!search.trim()) return articles
+        const kw = search.toLowerCase()
+        return articles.filter(a =>
+            a.title.toLowerCase().includes(kw) ||
+            a.tags.some(t => t.toLowerCase().includes(kw)) ||
+            a.excerpt.toLowerCase().includes(kw)
+        )
+    }, [articles, search])
 
     if (loading) {
         return (
@@ -79,28 +107,48 @@ const Article = () => {
 
             <div className='article-layout'>
                 <div className='article-list-col'>
-                    {articles.map((article, i) => (
-                        <BlurFade key={article.id} delay={i * 0.1} className='article-card'>
-                            <span className='article-date'>{article.date}</span>
-                            <Link to={`/article/${article.id}`} className='article-title-link'>
+                    {filtered.map((article, i) => (
+                        <BlurFade key={article.id} delay={i * 0.1}>
+                            <Link to={`/article/${article.id}`} className='article-card'>
+                                <div className='article-card-head'>
+                                    <span className='article-date'>{article.date}</span>
+                                    <div className='article-tags'>
+                                        {article.tags.map(tag => (
+                                            <span key={tag} className='article-tag'>#{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
                                 <h3 className='article-title'>{article.title}</h3>
+                                <p className='article-excerpt'>{article.excerpt}</p>
                             </Link>
-                            <div className='article-tags'>
-                                {article.tags.map(tag => (
-                                    <span key={tag} className='article-tag'>#{tag}</span>
-                                ))}
-                            </div>
                         </BlurFade>
                     ))}
                 </div>
 
                 <div className='article-profile-col'>
-                    <BlurFade delay={0.3} className='article-profile-card'>
-                        <img
-                            src={ProfilePicture}
-                            className='article-profile-pic'
+                    <BlurFade delay={0.3}>
+                        <div className='article-profile-card'>
+                            <img
+                                src={ProfilePicture}
+                                className='article-profile-pic'
+                            />
+                            <p className='article-profile-name'>不会替身(开发中)</p>
+                            <p className='article-profile-bio'>A simple soul with a passion for Games and Code</p>
+                        </div>
+                    </BlurFade>
+
+                    <BlurFade delay={0.4} className='article-search-card'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className='search-icon'>
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input
+                            type="text"
+                            className='article-search-input'
+                            placeholder='搜索文章…'
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
                         />
-                        <p className='article-profile-name'>不会替身(开发中)</p>
                     </BlurFade>
                 </div>
             </div>

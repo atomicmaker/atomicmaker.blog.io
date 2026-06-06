@@ -3,7 +3,7 @@ import { Dock, DockIcon } from './ui/dock'
 
 const ToolBar = ({ part }) => {
     return (
-        <Dock>
+        <Dock className="![background:linear-gradient(to_right_bottom,#EEEEAE,#F9F8F7)] !border-2 !border-[#EEEEAE]">
             <DockIcon>
                 <Link to='/'>
                     <img src='icon.jpg'></img>

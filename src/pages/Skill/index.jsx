@@ -12,7 +12,7 @@ const Skill = () => {
             </div>
 
             <div className='skill-content'>
-                <BlurFade delay={0} className='skill-title-card'>
+                <BlurFade delay={0} className='skill-hero'>
                     <p className='skill-title'>
                         我的<AuroraText>技术栈</AuroraText>
                     </p>

@@ -18,6 +18,8 @@ COLOR:
 
 .tool-bar {
     flex-shrink: 0;
+    display: flex;
+    padding: 1rem 0 0 1.5rem;
 }
 
 .pastime-content {
@@ -27,7 +29,7 @@ COLOR:
     gap: 2.5rem;
     justify-items: center;
     align-items: center;
-    padding: 0 5rem 3rem 5rem;
+    padding: 0 10rem 3rem 10rem;
 }
 
 .pastime-card {

@@ -18,6 +18,8 @@ COLOR:
 
 .tool-bar {
     flex-shrink: 0;
+    display: flex;
+    padding: 1rem 0 0 1.5rem;
 }
 
 .project-content {
@@ -44,7 +46,7 @@ COLOR:
 }
 
 .project-desc {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #aaa;
     margin: 0.5rem 0 0 0;
 }
@@ -110,7 +112,7 @@ COLOR:
 }
 
 .project-desc-text {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: #999;
     margin: 0;
     line-height: 1.6;
@@ -127,13 +129,13 @@ COLOR:
     border: 2px solid #F8C8C8;
     border-radius: 1rem;
     padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #888;
 }
 
 .project-link-hint {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: #A4BF58;
     font-weight: 600;
     opacity: 0;

@@ -17,7 +17,7 @@ const tools = [
     },
     {
         name: 'color5',
-        desc: '配色灵感',
+        desc: '配色灵感, 支持智能配色、图片取色、AI 线稿上色的专业在线配色工具网站',
         url: 'https://www.color5.com',
         icon: 'https://www.color5.com/favicon.ico'
     },
@@ -26,6 +26,12 @@ const tools = [
         desc: '一站式 API 调试、测试、文档生成与团队协作的接口开发管理工具',
         url: 'https://www.postman.com',
         icon: 'https://www.postman.com/_ar-assets/images/favicon-1-48.png'
+    },
+    {
+        name: 'Deepseek',
+        desc: '免费在线体验旗舰大模型对话，也面向开发者开放 AI 模型 API 调用服务的一站式大模型平台',
+        url: 'https://www.deepseek.com',
+        icon: 'https://www.deepseek.com/favicon.ico'
     }
 ]
 
