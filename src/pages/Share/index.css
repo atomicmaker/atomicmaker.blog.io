@@ -1,0 +1,106 @@
+/*
+COLOR:
+    #CFE7E1  - page background
+    #F9F8F7  - card background
+    #F8C8C8  - pink
+    #EEEEAE  - yellow
+    #CDDC84  - green
+    #A4BF58  - dark green
+*/
+
+.share-main {
+    height: 100vh;
+    background-color: #CFE7E1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tool-bar {
+    flex-shrink: 0;
+}
+
+.share-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+    overflow-y: auto;
+}
+
+/* Hero area */
+.share-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.share-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'jixueSong';
+    color: #555;
+    margin: 0;
+}
+
+.share-desc {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0.5rem 0 0 0;
+}
+
+/* Tool card grid */
+.share-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Individual tool card */
+.share-card {
+    background: #F9F8F7;
+    border-radius: 1.2rem;
+    border: 0.35rem solid #EEEEAE;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.share-card:hover {
+    transform: translateY(-3px);
+    border-color: #CDDC84;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.share-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.share-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.share-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #555;
+}
+
+.share-desc-text {
+    font-size: 0.8rem;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

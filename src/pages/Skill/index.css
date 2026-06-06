@@ -1,13 +1,69 @@
-.skill-section {
+/*
+COLOR:
+    #CFE7E1  - page background
+    #F9F8F7  - card background
+    #F8C8C8  - pink
+    #EEEEAE  - yellow
+    #CDDC84  - green
+    #A4BF58  - dark green
+*/
+
+.skill-main {
+    height: 100vh;
+    background-color: #CFE7E1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tool-bar {
+    flex-shrink: 0;
+}
+
+.skill-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+/* Title card */
+.skill-title-card {
+    background: linear-gradient(to right bottom, #CDDC84, #F9F8F7);
+    border-radius: 2rem;
+    padding: 2.5rem 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
 }
 
-.skill-description {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-size: 50px;
+.skill-title {
+    font-size: 3rem;
+    font-weight: 700;
     font-family: 'jixueSong';
+    color: #555;
+    margin: 0;
+}
+
+.skill-subtitle {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Tech cloud card */
+.skill-cloud-card {
+    background: #F9F8F7;
+    border: 0.6rem solid #CDDC84;
+    border-radius: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

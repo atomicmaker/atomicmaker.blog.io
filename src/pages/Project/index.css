@@ -1,0 +1,142 @@
+/*
+COLOR:
+    #CFE7E1  - page background
+    #F9F8F7  - card background
+    #F8C8C8  - pink
+    #EEEEAE  - yellow
+    #CDDC84  - green
+    #A4BF58  - dark green
+*/
+
+.project-main {
+    height: 100vh;
+    background-color: #CFE7E1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tool-bar {
+    flex-shrink: 0;
+}
+
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 4rem;
+    overflow-y: auto;
+}
+
+/* Hero */
+.project-hero {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'jixueSong';
+    color: #555;
+    margin: 0;
+}
+
+.project-desc {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 0.5rem 0 0 0;
+}
+
+/* Grid */
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Card */
+.project-card {
+    background: #F9F8F7;
+    border-radius: 1.5rem;
+    border: 0.5rem solid #F8C8C8;
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-decoration: none;
+    width: 100%;
+    max-width: 500px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #EEEEAE;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.project-card:hover .project-link-hint {
+    opacity: 1;
+}
+
+.project-card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.project-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.project-card:hover .project-icon {
+    color: #555;
+}
+
+.project-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #555;
+    margin: 0;
+}
+
+.project-desc-text {
+    font-size: 0.95rem;
+    color: #999;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.project-tech-tag {
+    background: linear-gradient(135deg, #F8C8C8, #F9F8F7);
+    border: 2px solid #F8C8C8;
+    border-radius: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.project-link-hint {
+    font-size: 0.85rem;
+    color: #A4BF58;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-self: flex-end;
+}

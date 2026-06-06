@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import ToolBar from '../../components/ToolBar'
+import { BlurFade } from '../../components/ui/blur-fade'
 import { useEffect, useState } from 'react';
+import ProfilePicture from '../../assets/img/profile.jpg'
 import './index.css'
 
 const Article = () => {
@@ -22,7 +24,7 @@ const Article = () => {
                     const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---/
                     const match = frontmatterRegex.exec(rawContent)
                     let meta = { title: '', date: '', tags: []}
-                    
+
                     if (match) {
                         const frontmatterStr = match[1];
                         frontmatterStr.split('\r\n').forEach(line => {
@@ -44,7 +46,7 @@ const Article = () => {
                         ...meta
                     })
                 }
-                
+
                 // 按日期倒序排序（最新的文章在最前面）
                 articleList.sort((a, b) => b.date.localeCompare(a.date))
                 setArticles(articleList)
@@ -58,30 +60,49 @@ const Article = () => {
         loadArticles()
     }, [])
 
-    console.log(articles)
     if (loading) {
-        return <div>加载文章列表中...</div>
+        return (
+            <div className='article-main'>
+                <div className='tool-bar'>
+                    <ToolBar part='article' />
+                </div>
+                <div className='article-loading'>加载文章中...</div>
+            </div>
+        )
     }
 
     return (
-        <div>
-            <ToolBar part='article' />
-            <div className='article-list'>
-                {articles.map(article => (
-                    <div className='article-link'>
-                        <p>{article.date}</p>
+        <div className='article-main'>
+            <div className='tool-bar'>
+                <ToolBar part='article' />
+            </div>
 
-                        <Link to={`/article/${article.id}`}>
-                            <h3>{article.title}</h3>
-                        </Link>
+            <div className='article-layout'>
+                <div className='article-list-col'>
+                    {articles.map((article, i) => (
+                        <BlurFade key={article.id} delay={i * 0.1} className='article-card'>
+                            <span className='article-date'>{article.date}</span>
+                            <Link to={`/article/${article.id}`} className='article-title-link'>
+                                <h3 className='article-title'>{article.title}</h3>
+                            </Link>
+                            <div className='article-tags'>
+                                {article.tags.map(tag => (
+                                    <span key={tag} className='article-tag'>#{tag}</span>
+                                ))}
+                            </div>
+                        </BlurFade>
+                    ))}
+                </div>
 
-                        <div>
-                        {article.tags.map(tag => (
-                            <span>#{tag}</span>
-                        ))}
-                        </div>
-                    </div>
-                ))}
+                <div className='article-profile-col'>
+                    <BlurFade delay={0.3} className='article-profile-card'>
+                        <img
+                            src={ProfilePicture}
+                            className='article-profile-pic'
+                        />
+                        <p className='article-profile-name'>不会替身(开发中)</p>
+                    </BlurFade>
+                </div>
             </div>
         </div>
     )

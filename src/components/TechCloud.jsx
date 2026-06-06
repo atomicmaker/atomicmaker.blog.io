@@ -12,7 +12,8 @@ function TechCloud() {
         "C++",
         "node.js",
         "vite",
-        "mysql"
+        "mysql",
+        "spring"
     ]
 
     let images = slugs.map(
