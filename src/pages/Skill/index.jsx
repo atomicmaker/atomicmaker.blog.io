@@ -7,26 +7,28 @@ import book7 from '../../assets/img/books/代码整洁之道.jpg'
 import book8 from '../../assets/img/books/SQL必知必会 (第5版).jpg'
 import book9 from '../../assets/img/books/Hello算法.jpg'
 import book10 from '../../assets/img/books/程序是怎样跑起来的.jpg'
+import book11 from '../../assets/img/books/网络是怎样连接的.jpg'
 
 const books = [
-    { title: '深入理解计算机系统', author: 'Randal E. Bryant', img: 'https://img1.doubanio.com/view/subject/l/public/s29195878.jpg' },
-    { title: 'Head First Java (第二版·中文版)', author: 'Kathy Sierra & Bert Bates', img: 'https://www.oreilly.com.cn/images/bookcover/hf_java_2ed_cvr.jpg' },
-    { title: 'Python编程从入门到实践 (第2版)', author: 'Eric Matthes', img: 'https://img1.doubanio.com/view/subject/s/public/s33716278.jpg' },
-    { title: '算法图解', author: 'Aditya Bhargava', img: 'https://img9.doubanio.com/view/subject/l/public/s29358625.jpg' },
-    { title: '深度学习入门 基于Python的理论与实现', author: '斋藤康毅', img: 'https://img9.doubanio.com/view/subject/s/public/s29815955.jpg' },
-    { title: '深度学习入门2 自制框架', author: '斋藤康毅', img: book6 },
-    { title: 'Head First设计模式 (第二版)', author: 'Eric Freeman & Elisabeth Robson', img: 'https://www.oreilly.com.cn/images/bookcover/Head-First-Design-Patterns-2e_cvr_l.gif' },
-    { title: '代码整洁之道', author: 'Robert C. Martin', img: book7 },
-    { title: 'SQL必知必会 (第5版)', author: 'Ben Forta', img: book8 },
-    { title: 'Hello算法', author: '靳宇栋', img: book9 },
-    { title: '程序是怎样跑起来的', author: '矢泽久雄', img: book10 },
+    { title: '深入理解计算机系统', author: 'Randal E. Bryant', status: 'doing', img: 'https://img1.doubanio.com/view/subject/l/public/s29195878.jpg' },
+    { title: 'Head First Java (第二版·中文版)', author: 'Kathy Sierra & Bert Bates', status: 'done', img: 'https://www.oreilly.com.cn/images/bookcover/hf_java_2ed_cvr.jpg' },
+    { title: 'Python编程从入门到实践 (第2版)', author: 'Eric Matthes', status: 'done', img: 'https://img1.doubanio.com/view/subject/s/public/s33716278.jpg' },
+    { title: '算法图解', author: 'Aditya Bhargava', status: 'done', img: 'https://img9.doubanio.com/view/subject/l/public/s29358625.jpg' },
+    { title: '深度学习入门 基于Python的理论与实现', author: '斋藤康毅', status: 'done', img: 'https://img9.doubanio.com/view/subject/s/public/s29815955.jpg' },
+    { title: '深度学习入门2 自制框架', author: '斋藤康毅', status: 'done', img: book6 },
+    { title: 'Head First设计模式 (第二版)', author: 'Eric Freeman & Elisabeth Robson', status: 'done', img: 'https://www.oreilly.com.cn/images/bookcover/Head-First-Design-Patterns-2e_cvr_l.gif' },
+    { title: '代码整洁之道', author: 'Robert C. Martin', status: 'doing', img: book7 },
+    { title: 'SQL必知必会 (第5版)', author: 'Ben Forta', status: 'done', img: book8 },
+    { title: 'Hello算法', author: '靳宇栋', status: 'done', img: book9 },
+    { title: '程序是怎样跑起来的', author: '矢泽久雄', status: 'done', img: book10 },
+    { title: '网络是怎样连接的', author: '户根勤', status: 'doing', img: book11 },
 ]
 
 const videos = [
-    { title: 'Build Responsive Real-World Websites with HTML and CSS', platform: 'Udemy', author: 'Jonas Schmedtmann', url: 'https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/', img: 'https://img-c.udemycdn.com/course/480x270/437398_46c3_10.jpg' },
-    { title: 'Spring Boot: Mastering the Fundamentals', platform: 'codewithmosh', author: 'Mosh Hamedani', url: 'https://codewithmosh.com/p/spring-boot-fundamentals', img: 'https://codewithmosh.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcodewithmosh%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fcovers%2Fspring-boot-part1&w=640&q=75' },
-    { title: 'Spring Boot: Mastering REST API Development', platform: 'codewithmosh', author: 'Mosh Hamedani', url: 'https://codewithmosh.com/p/spring-boot-building-apis', img: 'https://codewithmosh.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcodewithmosh%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fcovers%2Fspring-boot-part2&w=640&q=75' },
-    { title: 'HTML & CSS Full Course', platform: 'YouTube', author: 'Simon', url: 'https://courses.supersimple.dev/courses/html-css', img: 'https://supersimple.dev/assets/html-css-full-course-cover-Bz98bhLm.png' },
+    { title: 'Build Responsive Real-World Websites with HTML and CSS', platform: 'Udemy', author: 'Jonas Schmedtmann', status: 'done', url: 'https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/', img: 'https://img-c.udemycdn.com/course/480x270/437398_46c3_10.jpg' },
+    { title: 'Spring Boot: Mastering the Fundamentals', platform: 'codewithmosh', author: 'Mosh Hamedani', status: 'done', url: 'https://codewithmosh.com/p/spring-boot-fundamentals', img: 'https://codewithmosh.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcodewithmosh%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fcovers%2Fspring-boot-part1&w=640&q=75' },
+    { title: 'Spring Boot: Mastering REST API Development', platform: 'codewithmosh', author: 'Mosh Hamedani', status: 'done', url: 'https://codewithmosh.com/p/spring-boot-building-apis', img: 'https://codewithmosh.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fcodewithmosh%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fcovers%2Fspring-boot-part2&w=640&q=75' },
+    { title: 'HTML & CSS Full Course', platform: 'YouTube', author: 'Simon', status: 'done', url: 'https://courses.supersimple.dev/courses/html-css', img: 'https://supersimple.dev/assets/html-css-full-course-cover-Bz98bhLm.png' },
 ]
 
 const Skill = () => {
@@ -56,6 +58,7 @@ const Skill = () => {
                                 <div key={book.title} className='book-3d-card'>
                                     <div className='book-inner'>
                                         <div className='book-cover'>
+                                            <span className={`status-badge status-${book.status}`}>{book.status === 'doing' ? '在读' : book.status === 'done' ? '已读' : '待读'}</span>
                                             <img src={book.img} alt={book.title} className='book-cover-img' />
                                         </div>
                                     </div>
@@ -77,6 +80,7 @@ const Skill = () => {
                             {videos.map(video => (
                                 <a key={video.title} href={video.url} target='_blank' rel='noopener noreferrer' className='video-card'>
                                     <div className='video-thumb'>
+                                        <span className={`status-badge status-${video.status}`}>{video.status === 'doing' ? '在看' : video.status === 'done' ? '已看' : '待看'}</span>
                                         <img src={video.img} alt={video.title} className='video-thumb-img' />
                                         <span className='video-platform-badge'>{video.platform}</span>
                                     </div>
