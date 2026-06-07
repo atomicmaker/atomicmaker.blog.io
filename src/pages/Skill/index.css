@@ -1,63 +1,92 @@
 /*
 COLOR:
-    #CFE7E1  - page background
-    #F9F8F7  - card background
-    #F8C8C8  - pink
-    #EEEEAE  - yellow
-    #CDDC84  - green
-    #A4BF58  - dark green
+    #CFE7E1  - page background    #F9F8F7  - card background
+    #F8C8C8  - pink               #EEEEAE  - yellow
+    #CDDC84  - green              #A4BF58  - dark green
 */
 
-.skill-main {
-    height: 100vh;
-    background-color: #CFE7E1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+.skill-main { min-height: 100vh; background-color: #CFE7E1; display: flex; flex-direction: column; }
+.tool-bar { flex-shrink: 0; display: flex; padding: 1rem 0 0 1.5rem; position: sticky; top: 0; z-index: 50; }
+
+.skill-layout {
+    display: grid; grid-template-columns: 320px 1fr; gap: 4rem;
+    padding: 2rem 3rem 3rem 1.5rem; align-items: start;
 }
 
-.tool-bar {
-    flex-shrink: 0;
-    display: flex;
-    padding: 1rem 0 0 1.5rem;
+/* Left: tech cloud — sticky */
+.skill-left-col { 
+    position: sticky; 
+    top: 5rem; 
 }
 
-.skill-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5rem 3rem 3rem 3rem;
-}
-
-/* Title card */
-.skill-hero{
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.skill-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: 'jixueSong';
-    color: #555;
-    margin: 0;
-}
-
-.skill-subtitle {
-    font-size: 1.1rem;
-    color: #aaa;
-    margin: 0.5rem 0 0 0;
-}
-
-/* Tech cloud card */
 .skill-cloud-card {
-    background: #F9F8F7;
-    border: 0.6rem solid #CDDC84;
-    border-radius: 2rem;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #F9F8F7; border: 0.5rem solid #CDDC84; border-radius: 2rem;
+    padding: 1.5rem; width: 280px; height: 280px; box-sizing: border-box;
+    display: flex; justify-content: center; align-items: center;
 }
+
+/* Right column */
+.skill-right-col { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+
+/* Section cards */
+.skill-section-card { background: #F9F8F7; border-radius: 2rem; padding: 1.8rem 2rem; box-sizing: border-box; }
+.skill-books-card { border: 0.5rem solid #F8C8C8; }
+.skill-videos-card { border: 0.5rem solid #EEEEAE; }
+.skill-section-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.2rem; padding-bottom: 0.7rem; border-bottom: 2px solid #eee; }
+.skill-section-title { font-size: 1.2rem; font-weight: 700; color: #555; }
+
+/* ===== 书籍 — 3D 卡片 ===== */
+.books-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
+
+.book-3d-card {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    cursor: pointer; perspective: 600px;
+}
+
+.book-inner { width: 100%; display: flex; justify-content: center; margin-bottom: 0.2rem; }
+
+.book-cover {
+    position: relative; width: 120px; height: 165px; border-radius: 0.3rem 0.5rem 0.5rem 0.3rem;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    background: #eee;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.12), -1px 0 3px rgba(0,0,0,0.08);
+    transform: rotateY(8deg); transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.book-3d-card:hover .book-cover {
+    transform: rotateY(20deg) translateX(-3px);
+    box-shadow: 6px 6px 16px rgba(0,0,0,0.16), -2px 0 6px rgba(0,0,0,0.1);
+}
+
+.book-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.book-title { font-size: 0.9rem; font-weight: 700; color: #555; text-align: center; line-height: 1.3; }
+.book-author { font-size: 0.8rem; color: #bbb; text-align: center; }
+
+/* ===== 视频 — 横向卡片 ===== */
+.videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; justify-items: center;}
+
+.video-card {
+    background: #F9F8F7; border-radius: 1rem; overflow: hidden;
+    text-decoration: none; transition: all 0.3s ease;
+    border: 2px solid #EEEEAE33; max-width: 400px;
+}
+
+.video-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-color: #EEEEAE; }
+
+.video-thumb {
+    position: relative; width: 100%; height: 200px; overflow: hidden;
+    background: #eee;
+}
+
+.video-thumb-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.video-platform-badge {
+    position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.35);
+    color: #fff; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem; backdrop-filter: blur(4px);
+}
+
+.video-info { padding: 0.8rem 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.video-title { font-size: 1rem; font-weight: 700; color: #555; line-height: 1.3; }
+.video-author { font-size: 0.85rem; color: #aaa; }
